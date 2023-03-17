@@ -1,0 +1,17 @@
+.btn {
+    font-size: 1.2rem;
+    background-color: #49f780 !important;
+    border-color: #49f780 !important;
+    color: #fff !important;
+
+        }
+        .fs-4 {
+            font-size: 2.5rem; /* aumenta el tamaño de letra del título */
+        }
+        .nav-link {
+            font-size: 1.2rem; /* aumenta el tamaño de letra de los enlaces */
+            padding: 0.5rem 1rem; /* aumenta el padding de los enlaces */
+        }
+        .nav {
+            margin-bottom: 0; /* elimina el espacio vertical entre el logotipo y los enlaces */
+        }

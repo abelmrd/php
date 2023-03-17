@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box
+  }
+  html, body {
+    height: 100%
+  }
+  body {
+      font: 8px "Open Sans", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between
+  }
+  ul {
+    list-style: none
+  }
+  a {
+    text-decoration: none
+  }
+  .generic-anchor {
+      color: #49f780;
+      font-size: 1.5em;
+      
+  }
+  .flex-rw {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  main {
+    flex: 1 1 auto; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: 7em "Oswald", sans-serif;
+    color: rgb(155,155,155);
+    line-height: 1
+  }
+  footer {
+    background: rgb(55,55,55);
+    margin-top: auto;
+    width: 100%
+  }
+  .footer-list-top {
+    width: 23.333%;
+  }
+  .footer-list-top > li {
+    text-align: center;
+    padding-bottom: 6px
+  }
+  .footer-list-header {
+    padding: 6px 0 3px 0;
+    color: #fff;
+    font: 1.6vw "Oswald", sans-serif;
+  }
+  .footer-list-anchor {
+    font: 1.5em "Open Sans", sans-serif
+  }
+  .footer-social-section {
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    margin-top: 3px;
+  }
+  .footer-social-section::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 6px;
+    border-top: 1px solid #49f780;
+    width: calc(100% - 12px)
+  }
+  .footer-social-overlap {
+    position: relative;
+    z-index: 2;
+    background: rgb(55,55,55);
+    padding: 0 12px
+  }
+  .footer-social-connect {
+    display: flex;
+    align-items: center;
+    font: 2.5em "Oswald", sans-serif;
+    color: #fff
+  }
+  .footer-social-small {
+    font-size: 0.4em;
+    padding: 0px 12px
+  }
+  .footer-social-overlap > a {
+    font-size: 2em
+  }
+  .footer-social-overlap > a:not(:first-child) {
+    margin-left: 0.25em
+  }
+  .footer-bottom-section {
+    width: 100%;
+    padding: 6px;
+    border-top: 1px solid #49f780;
+    margin-top: 6px
+  }
+  .footer-bottom-section > div:first-child {
+    margin-right: auto
+  }
+  .footer-bottom-wrapper {
+    font-size: 1.1em;
+   
+  
+  }
