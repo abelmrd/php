@@ -3,7 +3,7 @@
     ?>
 </div>
 <div class="container">
-    <?php echo "<img src=/assets/".$data['imagen']." width='200' height='300'>";
+    <?php echo "<img src=/assets/".$data['imagen']." width='250' height='300'>";
     ?>
 </div>
 <div style="position: relative; top: -220px; left: 320px;">

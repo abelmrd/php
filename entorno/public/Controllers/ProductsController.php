@@ -22,6 +22,12 @@ class ProductController {
         $pDAO=null;
         View::show("showProductById", $products);
     }
+    // para el login comprobamos que se haya enviado y guardamos en las variables l usuario y contraseña
+    //llamo al archivo de conexion db.php y la conecto
+    //se hace una consulta para comprobobar que las variables tienen los valores que hay en la tabla usuarios de la bd
+    //se guarda en $result
+    //si el contenido del array en user yes igual al resultado abrimos la pestaña de añadir productos habilitada al administrador
+    // y si no nos vuelve a mostrar el login y un pequeño mensaje de error
     public function login() {
         if (isset($_POST["nombre"])) {
             $user = $_POST["nombre"];
@@ -39,6 +45,7 @@ class ProductController {
                 echo "<script>window.location.href = 'index.php?controller=ProductController&action=aniadirProduct';</script>";
                 return;
             } else {
+                echo "<h1><center>Usuario incorrecto</center></h1>";
                 View::show("login", null);
             }
             $stmt->closeCursor();
@@ -46,48 +53,49 @@ class ProductController {
             View::show("login", null);
         }
     }
+    //comprobamos si el ID esta en el array , llamamos al dao, eliminamos el producto y mostramos todos los productos
+    //asi eliminamos una producto de la base de datos 
+    public function deleteProductById() {
+        if (isset($_POST['ID_pedido'])) {
+            require_once("models/productos.php");
+            $pDAO = new ProductoDAO();
+            if ($pDAO->deleteProductById($_POST['ID_pedido'])) {
+                $this->getAllProducts();
+            }
+        }
+    }
+                
     
-    /**
- * Método que muestra el contenido del carrito de la compra
- */
+// para el carrito de la compra y mostrarlo, perimero vemos si ha iniciado sesión e inicializamos el carrito y la variable total
+ 
 public function showCart() {
     if (isset($_SESSION["user"])) {
         $cart = array();
         $total = 0;
-        // Recorremos el carrito y obtenemos la información de cada producto
+        // recorremos el carrito y obtenemos la información de cada producto por su id
+        //
         foreach ($_SESSION["cart"] as $ID_pedido => $quantity) {
             require_once("models/productos.php");
             $pDAO = new ProductoDAO();
             $product = $pDAO->getProductById($ID_pedido);
-            $product["cantidad"] = $quantity; // Reemplazamos 'quantity' por 'cantidad'
+            $product["cantidad"] = $quantity; // asignamos el valor de la variable a la propiedad cantidad
             $cart[] = $product;
             $total += $product["precio"] * $quantity;
         }
-        // Calcular el total del carrito si no está vacío
+        // calcular el total del carrito si no hay productos (esta vacío) y la sesión esta vacía
         if (!empty($_SESSION["cart"])) {
             $total = $this->calculateTotal();
         }
-        // Mostramos la vista del carrito pasándole los datos necesarios
+        // mostramos la vista del carrito con los datos
         View::show("showCart", array("cart" => $cart, "total" => $total));
     } else {
-        // Redireccionamos a la página de inicio de sesión
+        // lo mostramos e la vista
         View::show("showCart", null);
     }
 }
 
-
-
-/**
- * Método que elimina un producto del carrito de la compra
- */
-/**
- * Método que elimina un producto del carrito de la compra
- */
-
-
-
-
-
+//método para calcular el total. lo inciamos a 0 . recorremos los productos del carrito 
+//suma del precio por la cantidad de cada producto en el carrito y se devuelve el valor total
 public function calculateTotal() {
     $total = 0;
     foreach ($_SESSION['cart'] as $ID_pedido => $item) {
@@ -95,22 +103,39 @@ public function calculateTotal() {
     }
     return $total;
 }
-/**
- * Método que añade un producto al carrito de la compra
- */
+
+
+//método poara cerrar sesisión eliminamos la sesión del usuario y le mostramos el login de nuevo
+public function cerrarsesion() {
+session_destroy();
+View::show("login", null);;
+}
+
+
+
+
+//método para añadir productos al carrito
+//conectamos a la base de datos con db.php
+//utilizamos una consulta que nos muestre el id nombre descripción y precio de la tabla cuando el id sea el pulsado
+//con execute la ejecuta en el objeto
+//obtenemos resultados de la consulta con fetchAll() del objeto PDO guardando en la variable $result como un array
+//añadimos un nuevo elemento al array $_SESSION["cart"] con la cantidad 
+//cierra la conexión
+
+
 public function addToCart() {
-    // Recuperamos el ID del producto y la cantidad desde $_POST
+    // recuperamos el ID del producto y la cantidad desde $_POST
     $ID_pedido = $_POST['ID_pedido'];
     $quantity = isset($_POST['cantidad']) ? intval($_POST['cantidad']) : 1;
-    // Si el carrito no existe, lo creamos como un array vacío
+    // si el carrito no existe, lo creamos como un array vacío
     if (!isset($_SESSION["cart"])) {
         $_SESSION["cart"] = array();
     }
-    // Si el producto ya está en el carrito, sumamos la cantidad nueva a la existente
+    // si el producto ya está en el carrito, sumamos la cantidad nueva a la existente
     if (isset($_SESSION["cart"][$ID_pedido])) {
         $_SESSION["cart"][$ID_pedido]["cantidad"] += $quantity;
         $_SESSION["cart"][$ID_pedido]["total"] += $_SESSION["cart"][$ID_pedido]["precio"] * $quantity;
-    } else { // Si no está, simplemente lo añadimos
+    } else { // si no está, simplemente lo añadimos
         require_once("db/db.php");
         $dbh = Database::connect();
         $stmt = $dbh->prepare("SELECT ID_pedido, nombre, descripcion, precio FROM Productos WHERE ID_pedido = ?");
@@ -126,12 +151,12 @@ public function addToCart() {
         );
         $dbh = null;
     }
-    // Calcular el total del carrito
+    // calcular el total del carrito
     $total = 0;
     foreach ($_SESSION['cart'] as $item) {
         $total += $item['total'];
     }
-    // Redireccionamos a la página del producto
+    // redireccionamos a la página del producto
     View::show("showCart", array('total' => $total));
 }
 

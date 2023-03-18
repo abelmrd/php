@@ -35,7 +35,12 @@ class ProductoDAO {
     
 
     }
-    
+    //funcion para borrar un producto de la nueva pagina
+    public function deleteProductById($id) {
+        $stmt = $this->db_con->prepare("DELETE FROM Productos WHERE ID_pedido = :id");
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
     
 
 
