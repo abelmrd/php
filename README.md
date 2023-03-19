@@ -37,6 +37,7 @@ El diseño está configurado por varios archivos css a los que los llamamos en l
 
 A pesar de que en este proyecto no tendría mucha diferencia en tiempo de ejecución ni carga de trabajo, cabe destacar que con un proyecto de mayor envergadura seria importante diferenciar el controlador de usuarios y el de productos, y no almacenarlos en un solo controlador. En el de usuarios crearíamos las clases y funciones que va a realizar el administrador, y en productos quedaríamos las funciones propias de la tienda como mostrar el carrito, añadir productos etc.
 
+### Desmigando el código
 Aquí vamos a explicar una de las funciones, en concreto la de ver el carrito, para comprender el código y su funcionalidad.
 ```
   \<?php
