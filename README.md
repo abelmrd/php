@@ -6,7 +6,7 @@ Podríamos definir a este modelo dividiendo en tres componentes principales: el 
 - La vista: representa la interfaz de usuario de la aplicación.
 - El controlador: actúa como intermediario entre el modelo y la vista, y es responsable de manejar las solicitudes del usuario y actualizar el modelo y la vista según sea necesario.
 
-Para este proyecto utilizamos el modelo vista controlador para estructurar y organizarlo.
+Para este proyecto utilizamos el modelo vista controlador para estructurar y organizar el código, además de ser más legible, aumentamos la seguridad de nuestra página.
 
 Separamos por una parte el controlador, donde está definida la funcionalidad de la página.
 
