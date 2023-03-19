@@ -100,108 +100,61 @@ Más tarde veremos la vista donde se muestran los datos que calcula el controlad
 \<title\>Carrito de compras\</title\>
 
 \<style\>
-
 body {
-
 font-size: 16px;
-
 margin: 0;
-
 padding: 0;
-
 }
 
 .container {
-
 padding: 0px;
-
 }
 
 table {
-
 font-size: 18px;
-
 }
 
 .card-title {
-
 font-size: 1.5rem;
-
 }
 
 .card-text {
-
 font-size: 1rem;
-
 }
-
 \</style\>
-
 \</head\>
-
 \<body\>
 
 \<!-- Imprime la tabla con los elementos del carrito --\>
-
 \<div class="container"\>
-
 \<h1\> Carrito de compras \</h1\>
-
 \<table class="table"\>
-
 \<tr\>
-
 \<th\>Producto\</th\>
-
 \<th\>Nombre\</th\>
-
 \<th\>Descripción\</th\>
-
 \<th\>Precio\</th\>
-
 \<th\>Cantidad\</th\>
-
 \</tr\>
-
 \<?php foreach ($\_SESSION['cart'] as $ID\_pedido =\> $item): ?\>
-
-\<!-- Recorremos todos los items que están guardados en la sesión el array carrito de la id concreta
-
-y los mostramos llamando al array item y dentro al valor asociado--\>
+\<!-- Recorremos todos los items que están guardados en la sesión el array carrito de la id concreta y los mostramos llamando al array item y dentro al valor asociado--\>
 
 \<tr\>
-
 \<td\>\<?php echo "\<img src='/assets/".$item['imagen']."' class='img-fluid' width='100px'\>"; ?\>\</td\>
-
 \<td\>\<?php echo $item['nombre']; ?\>\</td\>
-
 \<td\>\<?php echo $item['descripcion']; ?\>\</td\>
-
 \<td\>\<?php echo $item['precio']; ?\> €\</td\>
-
 \<td\>\<?php echo $item['cantidad']; ?\>\</td\>
-
 \</tr\>
-
 \<?php endforeach; ?\>
-
 \<tr\>
-
 \<td colspan="3"\>\</td\>
-
 \<td\>\<strong\>Total:\</strong\>\</td\>
-
 \<!-- mostramos el valor de la variable total arriba calculado, que es la suma de los productos --\>
-
 \<td colspan="2"\>\<strong\>\<?php echo $total; ?\> €\</strong\>\</td\>
-
   \</tr\>
-
   \</table\>
-
   \</div\>
-
   \</body\>
-
   \<!-- Fin del código --\>
   ```
