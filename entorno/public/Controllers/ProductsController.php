@@ -138,7 +138,7 @@ public function addToCart() {
     } else { // si no está, simplemente lo añadimos
         require_once("db/db.php");
         $dbh = Database::connect();
-        $stmt = $dbh->prepare("SELECT ID_pedido, nombre, descripcion, precio FROM Productos WHERE ID_pedido = ?");
+        $stmt = $dbh->prepare("SELECT ID_pedido, nombre, descripcion, precio, imagen FROM Productos WHERE ID_pedido = ?");
         $stmt->bindParam(1, $ID_pedido);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -146,6 +146,7 @@ public function addToCart() {
             'nombre' => $result[0]['nombre'],
             'descripcion' => $result[0]['descripcion'],
             'precio' => $result[0]['precio'],
+            'imagen' => $result[0]['imagen'],
             'cantidad' => $quantity,
             'total' => $result[0]['precio'] * $quantity
         );

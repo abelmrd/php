@@ -20,7 +20,10 @@ else
     echo '<div class="container mt-3">
     <h1>Bievenidos a Vitalia</h1>
     <h2>Somos tu mayor aliado en nutrición y suplementos</h2>
-    <div class="d-flex justify-content-center"><img src="assets/vitalia2.png" width="649" height="300"></div> 
+    <div class="d-flex justify-content-center image-container">
+  <img src="assets/vitalia2.png" width="649" height="300">
+</div>
+
     
     
   </div>';
@@ -28,3 +31,15 @@ else
   require_once ("views/footer.php");
 
 ?>
+<style>
+  .image-container {
+  max-width: 649px; 
+  margin: 20px auto; 
+  display: flex;
+  justify-content: center;
+  border: 5px solid #49f780;
+  box-sizing: border-box; 
+  padding: 1px; 
+}
+
+</style>

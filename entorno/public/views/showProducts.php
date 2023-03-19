@@ -10,7 +10,13 @@
                         <p class="card-text" style="font-size: 1rem;"><?php echo $article['descripcion']; ?></p>
                         <p class="card-text" style="font-size: 1rem;">Precio: <?php echo $article['precio']; ?> €</p>
                         <div class="btn-group" role="group">
-                            <a href="index.php?controller=ProductController&action=getProductById&ID_pedido=<?php echo $article['ID_pedido']; ?>" class="btn btn-primary">Ver más</a>
+                            
+                        <a href="index.php?controller=ProductController&action=getProductById&ID_pedido=<?php echo $article['ID_pedido']; ?>" class="btn btn-primary">
+  Ver más 
+  <img src="assets/lupa.png" width="20" height="20">
+</a>
+                        
+                        <!--<a href="index.php?controller=ProductController&action=getProductById&ID_pedido=<?php echo $article['ID_pedido']; ?>" class="btn btn-primary">Ver más</a>-->
                         </div>
                         <!--Comprobamos si el usuario esta logeado y es abel, para habilitar el noton de eliminar. Si hay usuario conectado pero no es abel saldra e boton de añadir al carrito y vermas-->
                         <?php if (isset($_SESSION["user"]) && $_SESSION["user"] == "Abel"): ?>
@@ -19,7 +25,9 @@
                                  <?php if (isset($article['ID_pedido'])): ?>
                                 <input type="hidden" name="ID_pedido" value="<?php echo $article['ID_pedido']; ?>">
                                 <?php endif; ?>
-                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                                <button type="submit" class="btn btn-danger">Eliminar 
+                                <img src="assets/pape.png" width="20" height="20">
+                                </button>
                                 </form>
                             </div>
                         <?php endif; ?>
@@ -30,7 +38,9 @@
                                 <?php if (isset($article['ID_pedido'])): ?>
                                 <input type="hidden" name="ID_pedido" value="<?php echo $article['ID_pedido']; ?>">
                                 <?php endif; ?>
-                                <button type="submit" class="btn btn-primary">Añadir al carrito</button>
+                                <button type="submit" class="btn btn-primary">Añadir al carrito
+                                <img src="assets/carro.png" width="20" height="20">
+                                </button>
                                 </form>
                             </div>
                         <?php endif; ?>

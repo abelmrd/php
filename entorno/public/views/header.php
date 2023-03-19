@@ -32,8 +32,8 @@ session_start();
                 <!--<li class="nav-item"><a href="/models/cerrarsesion.php" class="nav-link active" aria-current="page" style="background-color: #49f780; border-color: #49f780;">Cerrar sesión</a></li>-->
 <?php else: ?>
     <li class="nav-item"><a href="index.php?controller=ProductController&action=login" class="nav-link active" aria-current="page" style="background-color: #49f780; border-color: #49f780;margin-right: 10px;">Login</a></li>
-<?php if (!empty($_SESSION["cart"])) : ?>
     <li class="nav-item"><a href="index.php?controller=ProductController&action=showCart" class="nav-link active" style="background-color: #49f780; border-color: #49f780;">Ver carrito</a></li>
+<?php if (!empty($_SESSION["cart"])) : ?>
 <?php endif; ?>
 <?php endif; ?>
 <li class="nav-item"><a href="index.php?controller=ProductController&action=getAllProducts" class="nav-link" style="color: #49f780;">Listar Productos</a></li>
