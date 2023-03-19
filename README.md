@@ -137,8 +137,8 @@ font-size: 1rem;
 \<th\>Cantidad\</th\>
 \</tr\>
 \<?php foreach ($\_SESSION['cart'] as $ID\_pedido =\> $item): ?\>
-\<!-- Recorremos todos los items que están guardados en la sesión el array carrito de la id concreta y los mostramos llamando al array item 
-y dentro al valor asociado--\>
+\<!-- Recorremos todos los items que están guardados en la sesión el array carrito de la id concreta y los mostramos llamando
+al array item y dentro al valor asociado--\>
 
 \<tr\>
 \<td\>\<?php echo "\<img src='/assets/".$item['imagen']."' class='img-fluid' width='100px'\>"; ?\>\</td\>
