@@ -18,23 +18,26 @@ Con el modelo manejamos los datos que vamos a introducir o vamos a recoger de la
 Con las distintas vistas, que está formada siempre por el header que es la cabecera y el footer que es el pie de página, el usuario puede ver el contenido de la página. En el centro estará la vista que llama el controlador, que podría ser ver el carrito, los productos... etc
 Las vistas seria la interfaz que ve el usuario, y estos datos son proporcionados por el controlador.
 
-En nuestro proyecto hemos decidido implementar una parte administrativa, donde podremos iniciar sesión.
+### Funciones del administrador
+En nuestro proyecto hemos decidido implementar una parte administrativa, donde podremos iniciar sesión como administrador del sitio y acceder a nuevas vistas que nos permitirán poder realizar cambios en la propia página, en nuestro caso podría ser añadir nuevos productos, eliminarlos etc.
 
-Al comprobar si el usuario ingresado en el login es el mismo que está alojado en la base de datos, la página nos mostrará la opción de añadir productos, eliminarlos o cerrar sesión.
- Por ejemplo, desde este apartado no tenemos acceso a añadir productos al carrito. No tiene mucho sentido que el administrador se compre productos a sí mismo.
+Al comprobar si el usuario ingresado en el login es el mismo que está alojado en la base de datos, la página nos mostrará estas opciones, en concreto la de añadir productos, eliminarlos o cerrar sesión, que logicamente solo estará habilitado si el usuario ya la ha iniciado anteriormente.
+Por ejemplo, desde este apartado no tenemos acceso a añadir productos al carrito. No tiene mucho sentido que el administrador se compre productos a sí mismo.
 
-Estas comprobaciones las realizamos sabiendo si la sesión este iniciado y el valor del array en concreto el usuario es el administrador o no de la página.
+Estas comprobaciones las realizamos sabiendo si la sesión esta iniciada y el valor del array en concreto el usuario es el administrador o no de la página, ya que podría haber otros usuarios que estuvieras registrados en la base de datos pero no tuvieran estos permisos.
 
+### Funciones del usuario
 De la parte del usuario podemos ver la lista de productos, agregarlos al carrito y ver los detalles de los mismos, estaría enfocado a la compra de los productos e interacción en la página como usuario.
  Nunca un usuario "corriente" o potencial cliente podrá eliminar productos de la página ni tampoco añadirlos.
 
 Si la sesión esta vacía o el usuario es el administrador (Abel), no podrá acceder a estas opciones destinadas al usuario final.
 
+### Diseño de la página
 El diseño está configurado por varios archivos css a los que los llamamos en las vistas, si bien es cierto que, para algunos detalles como tamaño de letra, márgenes y demás se ha implementado implícito en las vistas. Si fuera un diseño más complejo si sería necesario implementarlo en páginas adicionales como hemos hecho en el header,footer y login.
 
 A pesar de que en este proyecto no tendría mucha diferencia en tiempo de ejecución ni carga de trabajo, cabe destacar que con un proyecto de mayor envergadura seria importante diferenciar el controlador de usuarios y el de productos, y no almacenarlos en un solo controlador. En el de usuarios crearíamos las clases y funciones que va a realizar el administrador, y en productos quedaríamos las funciones propias de la tienda como mostrar el carrito, añadir productos etc.
 
-Aquí explicamos una de las funciones, en concreto la de ver el carrito.
+Aquí vamos a explicar una de las funciones, en concreto la de ver el carrito, para comprender el código y su funcionalidad.
 ```
   \<?php
 
