@@ -10,15 +10,13 @@ Para este proyecto utilizamos el modelo vista controlador para estructurar y org
 
 Separamos por una parte el controlador, donde está definida la funcionalidad de la página.
 
-Cada función está definida para llamarla cuando sea necesario, instanciando el objeto y
-
-mostrando la vista que sea para cada función, se llama desde el código.
- Con los métodos hacemos funciones de una clase concreta y la llamamos en la instancia de esta clase.
+Cada función está definida para llamarla cuando sea necesario, instanciando el objeto y mostrando la vista que sea para cada función, se llama desde el código.
+Con los métodos hacemos funciones de una clase concreta y la llamamos en la instancia de esta clase.
 
 Con el modelo manejamos los datos que vamos a introducir o vamos a recoger de la base de datos.
 
 Con las distintas vistas, que está formada siempre por el header que es la cabecera y el footer que es el pie de página, el usuario puede ver el contenido de la página. En el centro estará la vista que llama el controlador, que podría ser ver el carrito, los productos... etc
- Las vistas seria la interfaz que ve el usuario, y estos datos son proporcionados por el controlador.
+Las vistas seria la interfaz que ve el usuario, y estos datos son proporcionados por el controlador.
 
 En nuestro proyecto hemos decidido implementar una parte administrativa, donde podremos iniciar sesión.
 
