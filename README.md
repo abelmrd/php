@@ -47,6 +47,7 @@ Más tarde veremos la vista donde se muestran los datos que calcula el controlad
     if (isset($_SESSION["user"])) {
         $cart = array();
         $total = 0;
+        // Comprobamos la sesión e inicializamos las variables cart como array y el total a 0.
         // recorremos el carrito y obtenemos la información de cada producto por su id
         //
         foreach ($_SESSION["cart"] as $ID_pedido => $quantity) {
@@ -72,23 +73,23 @@ Más tarde veremos la vista donde se muestran los datos que calcula el controlad
    ```
 
  ### Código de la vista donde mostramos los datos
- 
-  \<?php
+   ```
+    \<?php
 
-  // Inicializa el total en 0
+    // Inicializa el total en 0
    $total = 0;
   // Verifica si el carrito tiene elementos antes de calcular el total
    if (isset($\_SESSION['cart']) && count($\_SESSION['cart']) \> 0) {
 
-//Recorremos los elementos en el carrito y suma sus precios multiplicando por la cantidad
+  //Recorremos los elementos en el carrito y suma sus precios multiplicando por la cantidad
 
-foreach ($\_SESSION['cart'] as $item) {
+  foreach ($\_SESSION['cart'] as $item) {
 
-$total += $item['precio'] \* $item['cantidad'];
+  $total += $item['precio'] \* $item['cantidad'];
 
-}
+  }
 
-}
+  }
 
 ?\>
 
@@ -194,13 +195,13 @@ y los mostramos llamando al array item y dentro al valor asociado--\>
 
 \<td colspan="2"\>\<strong\>\<?php echo $total; ?\> €\</strong\>\</td\>
 
-\</tr\>
+  \</tr\>
 
-\</table\>
+  \</table\>
 
-\</div\>
+  \</div\>
 
-\</body\>
+  \</body\>
 
-\<!-- Fin del código --\>
-``
+  \<!-- Fin del código --\>
+  ```
