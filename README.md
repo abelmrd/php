@@ -1,14 +1,13 @@
 ### Índice
 
-[1. MVC](#1)
+[1. MVC](#1)<br>
 
-[2. Funciones del administrador](#2)
+[2. Funciones del administrador](#2)<br>
 
-[3. Funciones del usuario](#3)
+[3. Funciones del usuario](#3)<br>
 
-[4. Código del controlador para ver el carrito
+[4. Código del controlador para ver el carrito](#4)<br>
 
-](#4)
 [5. Código de la vista donde mostramos los datos](#5)
 
 <a id="1"></a>
