@@ -1,3 +1,13 @@
+### Índice
+
+[1. MVC](#1)
+[2. Funciones del administrador](#2)
+[3. Funciones del usuario](#3)
+[4. Código del controlador para ver el carrito
+](#4)
+[5. Código de la vista donde mostramos los datos](#5)
+
+<a id="1"></a>
 ## Modelo vista controlador MVC
 
 Podríamos definir a este modelo dividiendo en tres componentes principales: el modelo, la vista y el controlador.
@@ -19,14 +29,16 @@ Con el modelo manejamos los datos que vamos a introducir o vamos a recoger de la
 
 Con las distintas vistas, que está formada siempre por el header que es la cabecera y el footer que es el pie de página, el usuario puede ver el contenido de la página. En el centro estará la vista que llama el controlador, que podría ser ver el carrito, los productos... etc
  Las vistas seria la interfaz que ve el usuario, y estos datos son proporcionados por el controlador.
-
+<a id="2"></a>
+### Funciones del administrador
 En nuestro proyecto hemos decidido implementar una parte administrativa, donde podremos iniciar sesión.
 
 Al comprobar si el usuario ingresado en el login es el mismo que está alojado en la base de datos, la página nos mostrará la opción de añadir productos, eliminarlos o cerrar sesión.
  Por ejemplo, desde este apartado no tenemos acceso a añadir productos al carrito. No tiene mucho sentido que el administrador se compre productos a sí mismo.
 
 Estas comprobaciones las realizamos sabiendo si la sesión este iniciado y el valor del array en concreto el usuario es el administrador o no de la página.
-
+<a id="3"></a>
+### Funciones del usuario
 De la parte del usuario podemos ver la lista de productos, agregarlos al carrito y ver los detalles de los mismos, estaría enfocado a la compra de los productos e interacción en la página como usuario.
  Nunca un usuario "corriente" o potencial cliente podrá eliminar productos de la página ni tampoco añadirlos.
 
@@ -38,7 +50,7 @@ A pesar de que en este proyecto no tendría mucha diferencia en tiempo de ejecuc
 
 Aquí explicamos una de las funciones del controlador, en concreto la de ver el carrito.
 Más tarde veremos la vista donde se muestran los datos que calcula el controlador a través del modelo productos, donde se manejan los datos.
-
+<a id="4"></a>
 ### Código del controlador para ver el carrito
 
 
@@ -71,7 +83,7 @@ Más tarde veremos la vista donde se muestran los datos que calcula el controlad
 }
 
    ```
-
+<a id="5"></a>
  ### Código de la vista donde mostramos los datos
    ```
     \<?php
