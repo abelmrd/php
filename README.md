@@ -39,7 +39,7 @@ A pesar de que en este proyecto no tendría mucha diferencia en tiempo de ejecuc
 Aquí explicamos una de las funciones del controlador, en concreto la de ver el carrito.
 Más tarde veremos la vista donde se muestran los datos que calcula el controlador a través del modelo productos, donde se manejan los datos.
 
-#### Código del controlador para ver el carrito
+### Código del controlador para ver el carrito
 
 
   ```
